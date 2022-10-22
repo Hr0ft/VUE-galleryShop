@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
+@import './spinner.scss';
+@import './constants.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+a {
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+li {
+  list-style: none;
+}
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+a {
+  cursor: pointer;
+}
+
+body {
+  // background: #e5e5e5;
+  background-color: #f6f3f3;
+  font-family: 'Merriweather', serif;
+}
+.shop {
+  margin: 0 auto;
+  height: 920px;
+}
+
+//  Header
+
+.header {
+  border-bottom: 1px solid $borderColor;
+
+  &__wrapper {
+    margin: 0 auto;
+    width: $body-width;
+    height: #{$headerhaight};
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  &__search {
+    display: flex;
+    width: $hedarSearchBlockWidth - 1;
+    input {
+      margin: 0;
+      padding: 13px 16px 14px 16px;
+      height: 48px;
+      width: 294px;
+
+      border: 1px solid $borderColor;
+
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #343030;
+      background-color: #f6f3f3;
+      :placeholder-shown {
+        color: #9f9f9f;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    button {
+      height: 48px;
+      width: 122px;
+
+      border-radius: 0px;
+
+      background: rgba(64, 52, 50, 1);
+
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 150%;
+      color: #ffffff;
+      &:hover {
+        background: rgba(119, 103, 99, 1);
+      }
+    }
+  }
+}
+
+// Main
+
+.main {
+  height: 100%;
+}
+.gallery {
+  margin: 0 auto;
+  width: $body-width + 2;
+  height: auto;
+  &__title {
+    margin-top: 45px;
+    height: 36px;
+    font-weight: 700;
+    font-size: $regularFontSize;
+    line-height: 150%;
+  }
+  &__container {
+    display: grid;
+    grid-template-columns: 280px 280px 280px 280px;
+    grid-column-gap: 32px;
+    grid-row-gap: 32px;
+
+    margin-top: 39px;
+  }
+}
+.picture-lot {
+  position: relative;
+  height: 328px;
+  width: auto;
+
+  border: 1px solid #e1e1e1;
+
+  & img {
+    width: 278px;
+  }
+  &__img {
+    height: 168px;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin: 12px 24px 0px;
+
+    &__name &__author {
+      font-family: inherit;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 150%;
+      color: #343030;
+    }
+  }
+  &__sale {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 22px 24px 24px;
+  }
+  &__download,
+  &__buy-btn,
+  &__basket-btn {
+    height: 48px;
+    width: 118px;
+
+    display: flex;
+    align-items: center;
+  }
+  &__download {
+    justify-content: center;
+  }
+
+  &__buy-btn {
+    justify-content: center;
+    background: #382e2b;
+    color: #f4f6f9;
+    &:hover {
+      background: rgba(119, 103, 99, 1);
+    }
+  }
+  &__basket-btn {
+    position: relative;
+    display: flex;
+    justify-content: end;
+
+    padding-right: 9px;
+
+    background: #5b3a32;
+    color: #f4f6f9;
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: center;
+    &:hover {
+      background: rgba(119, 103, 99, 1);
+    }
+  }
+  &__basket-btn::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+
+    left: 11px;
+    top: 32%;
+
+    background: url(../assets/checkMark.svg) no-repeat;
+  }
+  &__old-price {
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+  &__sold {
+    margin: 34px 0 26px 24px;
+    color: #343030;
+    font-family: 'Merriweather';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+  }
+}
+.hidden {
+  display: none;
+}
+
+.soldLot {
+  opacity: 0.5;
+}
+
+// footer
+.footer {
+  height: 96px;
+
+  display: flex;
+  align-items: center;
+
+  background: #eceaea;
+  width: 100%;
+
+  &__wrapper {
+    position: relative;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: inherit;
+    justify-content: center;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  &__nav {
+    position: absolute;
+    left: -540px;
+
+    display: flex;
+    justify-content: flex-end;
+
+    width: 600px;
+
+    & li {
+      margin: 0 24px;
+    }
+    & li a {
+      color: #555555;
+    }
+  }
+}
+.contacts {
+  position: absolute;
+
+  left: 180px;
+  display: flex;
+  justify-content: space-around;
+
+  width: 496px;
+  height: 22px;
+
+  color: #555555;
+  &__phone,
+  &__location {
+    position: relative;
+    text-align: left;
+  }
+
+  &__phone::before {
+    background: url(../assets/phone.svg) no-repeat;
+  }
+
+  &__location {
+    margin-left: 75px;
+    &::before {
+      background: url(../assets/location.svg) no-repeat;
+    }
+  }
+  &__phone::before,
+  &__location::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 22px;
+    left: -20px;
+    top: 3px;
+  }
+}
